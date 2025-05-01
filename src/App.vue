@@ -1,17 +1,10 @@
 <template>
-  <LifeCycle v-if="showElements" />
-  <div style="margin-top: 20px;">
-    <button @click="showElements = !showElements">
-      {{ showElements ? "Ocultar elementos" : "Mostrar elementos" }}
-    </button>
-  </div>
+  <h2>Producto destacado:</h2>
+  <ProductCard />
 </template>
 
 <script setup>
-import LifeCycle from "./components/LifeCycle.vue"
-import { ref } from "vue"
-
-const showElements = ref(true)
+import ProductCard from "./components/ProductCard.vue"
 </script>
 
 <style>
@@ -21,6 +14,6 @@ const showElements = ref(true)
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px;
 }
 </style>
