@@ -1,17 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <LifeCycle v-if="showElements" />
+  <div style="margin-top: 20px;">
+    <button @click="showElements = !showElements">
+      {{ showElements ? "Ocultar elementos" : "Mostrar elementos" }}
+    </button>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import LifeCycle from "./components/LifeCycle.vue"
+import { ref } from "vue"
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+const showElements = ref(true)
 </script>
 
 <style>
