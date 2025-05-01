@@ -3,7 +3,7 @@
     <h2>Hooks del ciclo de vida</h2>
     <input
       v-model="mensaje"
-      placeholder="Ingrese un valor para actualizar el DOM"
+      placeholder="Ingrese un valor para actualizar el ciclo de vida"
       style="width: 300px; height: 30px"
     />
   </div>
