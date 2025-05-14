@@ -3,7 +3,6 @@
     <select
       v-model="category"
       class="p-2 border-b border-gray-300 outline-none"
-      @change="emit('update:modelValue', $event.target.value)"
     >
       <option disabled value="">Seleccione una categoría</option>
       <option
@@ -18,12 +17,18 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from "vue"
+import { computed, defineProps, defineEmits } from "vue"
 
-defineProps({
-  categories: Array,
+const props = defineProps({
+  modelValue: String,
+  categories: Array
 })
-const emit = defineEmits(["update"])
+const emit = defineEmits(["update:modelValue"])
 
-const category = ref("")
+const category = computed({
+  get: () => props.modelValue,
+  set: (val) => {
+    emit('update:modelValue', val)
+  }
+})
 </script>
