@@ -1,19 +1,29 @@
 <template>
-  <div>
-    <select v-model="selected">
+  <div class="flex justify-end">
+    <select
+      v-model="category"
+      class="p-2 border-b border-gray-300 outline-none"
+      @change="emit('update:modelValue', $event.target.value)"
+    >
       <option disabled value="">Seleccione una categoría</option>
-      <option>Accesorios</option>
-      <option>Medicinas</option>
-      <option>Alimentos</option>
+      <option
+        v-for="option in categories"
+        :value="option.value"
+        :key="option.value"
+      >
+        {{ option.text }}
+      </option>
     </select>
   </div>
 </template>
 
 <script setup>
-import {
-  ref
-} from "vue"
+import { ref, defineProps, defineEmits } from "vue"
 
-const selected = ref('')
+defineProps({
+  categories: Array,
+})
+const emit = defineEmits(["update"])
 
+const category = ref("")
 </script>
