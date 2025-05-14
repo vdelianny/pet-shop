@@ -1,10 +1,9 @@
 <template>
-  <h2>Producto destacado:</h2>
-  <ProductCard />
+  <ProductList />
 </template>
 
 <script setup>
-import ProductCard from "./components/ProductCard.vue"
+import ProductList from "@/views/ProductList.vue"
 </script>
 
 <style>
