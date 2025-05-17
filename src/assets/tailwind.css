@@ -3,3 +3,9 @@
 @tailwind components;
 
 @tailwind utilities;
+
+
+input, select {
+    @apply bg-gray-50;
+    @apply text-gray-500;
+}

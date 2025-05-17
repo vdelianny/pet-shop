@@ -1,0 +1,42 @@
+export const products = [
+  {
+    id: 1,
+    title: "Collar",
+    description: "Collar rosado ajustable para perros y gatos.",
+    category: "Accesorios",
+    price: 15,
+    available: true,
+  },
+  {
+    id: 2,
+    title: "Vitamina",
+    description: "Vitamina para perros y gatos.",
+    category: "Medicinas",
+    price: 12,
+    available: false,
+  },
+  {
+    id: 3,
+    title: "Croquetas",
+    description: "Alimento para perros.",
+    category: "Alimentos",
+    price: 50,
+    available: true,
+  },
+  {
+    id: 4,
+    title: "Atún",
+    description: "Alimento para gatos.",
+    category: "Alimentos",
+    price: 3.99,
+    available: true,
+  },
+  {
+    id: 5,
+    title: "Cama",
+    description: "Cama para perros pequeños.",
+    category: "Accesorios",
+    price: 230,
+    available: false,
+  },
+]

@@ -14,7 +14,7 @@
       class="w-40 outline-none border-b border-gray-300"
     />
   </div>
-  <h2 class="mt-20 text-start font-semibold">
+  <h2 class="mt-20 text-start text-xl font-semibold">
     Listado de productos: {{ category }}
   </h2>
   <div class="mt-10 grid grid-cols-3 gap-x-4 gap-y-8">
@@ -22,12 +22,18 @@
       <ProductCard :data="product" />
     </div>
   </div>
+  <div v-show="!productsFiltered.length" class="mt-10">
+    <p class="text-center text-4xl font-semibold">
+      No hay productos disponibles
+    </p>
+  </div>
 </template>
 
 <script setup>
 import { ref, reactive, watch, onMounted } from "vue"
 import ProductCard from "@/components/ProductCard.vue"
 import CategoryFilter from "@/components/CategoryFilter.vue"
+import { products } from "@/data.ts"
 
 let category = ref("")
 let productsFiltered = ref([])
@@ -42,36 +48,6 @@ const categories = ref([
   { text: "Medicinas", value: "Medicinas" },
   { text: "Alimentos", value: "Alimentos" },
 ])
-const products = [
-  {
-    id: 1,
-    title: "Collar",
-    description: "Collar rosado ajustable para perros y gatos.",
-    category: "Accesorios",
-    price: 15,
-  },
-  {
-    id: 2,
-    title: "Vitamina",
-    description: "Vitamina para perros y gatos.",
-    category: "Medicinas",
-    price: 12,
-  },
-  {
-    id: 3,
-    title: "Croquetas",
-    description: "Alimento para perros.",
-    category: "Alimentos",
-    price: 50,
-  },
-  {
-    id: 4,
-    title: "Cama",
-    description: "Cama para perros pequeños.",
-    category: "Accesorios",
-    price: 230,
-  },
-]
 
 //Watchers and lifecycle
 watch(
@@ -101,7 +77,6 @@ watch(
       //returning matching elements
       return matchesCategory && matchesMin && matchesMax
     })
-    //filters validation
   },
   { deep: true }
 )

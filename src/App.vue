@@ -1,5 +1,7 @@
 <template>
-  <ProductList />
+  <div class="bg-gray-50 min-h-screen p-14">
+    <ProductList />
+  </div>
 </template>
 
 <script setup>
@@ -12,7 +14,5 @@ import ProductList from "@/views/ProductList.vue"
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin: 60px;
 }
 </style>
