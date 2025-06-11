@@ -10,6 +10,7 @@
       <button
         v-if="data.available"
         class="bg-blue-900 text-white text-sm rounded-full py-2 px-4"
+        @click="addProduct(data)"
       >
         Agregar al carrito
       </button>
@@ -19,6 +20,7 @@
 </template>
 
 <script setup>
+import { addProduct } from "@/services/shoppingCart.ts";
 import { defineProps } from "vue"
 
 const imageUrl = "../products/collar.jpg"

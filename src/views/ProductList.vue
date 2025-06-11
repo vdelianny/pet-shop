@@ -13,6 +13,12 @@
       v-model="filters.maxPrice"
       class="w-40 outline-none border-b border-gray-300"
     />
+    <input
+      placeholder="Nombre del producto"
+      v-model="filters.title"
+      class="w-40 outline-none border-b border-gray-300"
+      @input="filterByTitle"
+    />
   </div>
   <h2 class="mt-20 text-start text-xl font-semibold">
     Listado de productos: {{ category }}
@@ -40,6 +46,7 @@ let productsFiltered = ref([])
 let filters = reactive({
   minPrice: null,
   maxPrice: null,
+  title: null
 })
 
 //DATA
@@ -48,6 +55,12 @@ const categories = ref([
   { text: "Medicinas", value: "Medicinas" },
   { text: "Alimentos", value: "Alimentos" },
 ])
+
+//Filter by name
+const filterByTitle = (e) => {
+  const title = e.target.value.toLowerCase()
+  productsFiltered.value = products.filter((el) => el.title.toLowerCase().includes(title))
+}
 
 //Watchers and lifecycle
 watch(
