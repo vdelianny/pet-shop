@@ -10,7 +10,6 @@
     </div>
   </div>
   <div class="bg-gray-50 min-h-screen px-14 py-7">
-    <RouterView />
     <ProductList @add="updateShoppingCart" />
   </div>
 </template>
