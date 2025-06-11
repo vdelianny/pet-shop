@@ -25,7 +25,7 @@
   </h2>
   <div class="mt-10 grid grid-cols-3 gap-x-4 gap-y-8">
     <div v-for="product in productsFiltered" :key="product.id">
-      <ProductCard :data="product" />
+      <ProductCard :data="product" @add="$emit('add')" />
     </div>
   </div>
   <div v-show="!productsFiltered.length" class="mt-10">
@@ -36,10 +36,12 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch, onMounted } from "vue"
+import { ref, reactive, watch, onMounted, defineEmits } from "vue"
 import ProductCard from "@/components/ProductCard.vue"
 import CategoryFilter from "@/components/CategoryFilter.vue"
 import { products } from "@/data.ts"
+
+defineEmits(["add"])
 
 let category = ref("")
 let productsFiltered = ref([])

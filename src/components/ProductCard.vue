@@ -20,11 +20,22 @@
 </template>
 
 <script setup>
-import { addProduct } from "@/services/shoppingCart.ts";
-import { defineProps } from "vue"
+import { defineProps, defineEmits } from "vue"
 
 const imageUrl = "../products/collar.jpg"
+const emit = defineEmits(["add"])
 defineProps({
   data: Object,
 })
+
+const addProduct = (product) => {
+  let products = JSON.parse(localStorage.getItem("products") || "[]")
+  products.push({
+    id: product.id,
+    price: product.price,
+    title: product.title,
+  })
+  localStorage.setItem("products", JSON.stringify(products))
+  emit('add')
+}
 </script>
